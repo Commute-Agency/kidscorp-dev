@@ -1,0 +1,335 @@
+@import url(./variables.css);
+@import url(./themes.css);
+
+body {
+  overscroll-behavior: none;
+}
+
+:root,
+
+html {
+  background-color: var(--color--background);
+  color: var(--color--text);
+}
+
+*:focus {
+  outline-color: var(--brand-color--highlight-100);
+  outline-offset: 1px;
+  outline-width: 2px;
+  outline-style: solid;
+}
+
+/* 
+----------------------------------------------------------------------------
+* Feature Works
+----------------------------------------------------------------------------
+*/
+
+.feature-works_title-icon {
+  transition: transform var(--duration) ease,
+    opacity var(--duration) linear 0.1s;
+}
+.feature-works_title-icon-container {
+  max-width: 200px;
+  transition: max-width var(--duration) ease;
+}
+
+.feature-works_list-item:not(:hover) .feature-works_title-icon-container {
+  max-width: 0px;
+}
+
+.feature-works_list-item:not(:hover) .feature-works_title-icon {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.feature-works_cover {
+  --percentage: 0%;
+  --size: 0px;
+  top: clamp(0%, var(--percentage), calc(100% - var(--size)));
+}
+
+/* 
+----------------------------------------------------------------------------
+* Page Index
+----------------------------------------------------------------------------
+*/
+@media screen and (min-width: 768px) {
+  [data-component="page-index"] .navbar_actions {
+    transition: max-width var(--duration) var(--ease),
+      margin-left var(--duration) var(--ease);
+  }
+
+  [data-fixed="false"] .navbar_actions {
+    margin-left: 0px;
+    transition: max-width var(--duration) var(--ease),
+      margin-left var(--duration) var(--ease);
+  }
+}
+
+[data-fixed="false"] .navbar_actions {
+  max-width: 0px;
+  overflow: hidden;
+  flex: 0;
+}
+
+.index-navbar_scroll-path {
+  --stroke-dasharray: 0;
+  --stroke-dashoffset: 0;
+  stroke-dasharray: var(--stroke-dasharray);
+  stroke-dashoffset: var(--stroke-dashoffset);
+  stroke: var(--brand-color--highlights);
+}
+
+/* 
+* Page Index Links 
+*/
+.navbar_link:not(.w--current) .navbar_link-active-dot {
+  margin-right: 0;
+  max-width: 0px;
+  overflow: hidden;
+}
+
+/* 
+* Logo changes on nav-menu open
+*/
+.page-index:has([data-nav-menu-open]) .index_brand {
+  color: var(--color--background-dark);
+}
+
+/* 
+* Auto scroll
+*/
+[data-component="auto-scroll"] {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  transition: all 0.5s ease;
+}
+
+[data-component="auto-scroll"]::-webkit-scrollbar {
+  width: 0; /* For Chrome, Safari, and Opera */
+}
+
+[data-component="auto-scroll"][data-scrollable="true"] {
+  cursor: grab;
+}
+
+[data-component="auto-scroll"][data-scroll-visibility="start"] {
+  mask-image: linear-gradient(to right, black 70%, transparent 98%);
+}
+[data-component="auto-scroll"][data-scroll-visibility="middle"] {
+  mask-image: linear-gradient(
+    to right,
+    transparent 5%,
+    black 30%,
+    black 70%,
+    transparent 98%
+  );
+}
+[data-component="auto-scroll"][data-scroll-visibility="end"] {
+  mask-image: linear-gradient(to left, black 70%, transparent 98%);
+}
+
+/* 
+----------------------------------------------------------------------------
+* Page Index
+----------------------------------------------------------------------------
+*/
+[data-component="nav-menu"]:focus-within .navbar_menu-button {
+  outline-color: var(--brand-color--highlight-100);
+  outline-offset: 1px;
+  outline-width: 2px;
+  outline-style: solid;
+}
+
+/* 
+----------------------------------------------------------------------------
+* Project Interactive Gallery
+----------------------------------------------------------------------------
+*/
+
+.projects-interactive-gallery {
+  mask-image: linear-gradient(
+    to right,
+    transparent 5%,
+    black 30%,
+    black 70%,
+    transparent 98%
+  );
+}
+
+/* 
+----------------------------------------------------------------------------
+* Navbar Menu
+----------------------------------------------------------------------------
+*/
+
+@media screen and (max-width: 480px) {
+  .navbar:has([aria-expanded="true"]) .navbar_brand {
+    color: var(--color--font-dark);
+  }
+}
+
+.navbar_menu-links-list:has(.navbar_menu-link:hover)
+  .navbar_menu-link:not(:hover) {
+  opacity: 0.5;
+}
+
+.navbar_menu-link-icon {
+  overflow: hidden;
+  max-width: 100%;
+  transition: max-width var(--duration) var(--ease),
+    padding-right var(--duration) var(--ease);
+}
+
+.navbar_menu-link:not(:hover) .navbar_menu-link-icon {
+  max-width: 0px;
+  padding-left: 0px;
+}
+
+/* 
+----------------------------------------------------------------------------
+* Dropdown
+----------------------------------------------------------------------------
+*/
+.dropdown:focus-within {
+  outline-color: var(--brand-color--highlight-100);
+  outline-offset: 1px;
+  outline-width: 2px;
+  outline-style: solid;
+}
+.dropdown:has(.w--open) {
+  grid-template-rows: auto min-content;
+}
+
+/* 
+----------------------------------------------------------------------------
+* Checkbox
+----------------------------------------------------------------------------
+*/
+.form_checkbox:focus-within {
+  outline-color: var(--brand-color--highlight-100);
+  outline-offset: 1px;
+  outline-width: 2px;
+  outline-style: solid;
+}
+.form_checkbox:has(:checked) {
+  background: var(--color--background-dark);
+  color: var(--color--text-light);
+}
+
+/* 
+----------------------------------------------------------------------------
+* Copy to Clipboard
+----------------------------------------------------------------------------
+*/
+.copy-to-clipboard form:focus-within {
+  outline-color: var(--brand-color--highlight-100);
+  outline-offset: 1px;
+  outline-width: 2px;
+  outline-style: solid;
+}
+
+/* 
+----------------------------------------------------------------------------
+* Pricing
+----------------------------------------------------------------------------
+*/
+[data-component="pricing-card"]:not(
+    :is([data-type], [data-urgency], [data-complexity])
+  )
+  .actions_wrapper
+  .button {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 
+* Update images
+*/
+[data-component="pricing-card"]:not(:is([data-type])) [data-image-type] {
+  visibility: hidden;
+  opacity: 0;
+}
+[data-component="pricing-card"]:is([data-type="option-1"])
+  .pricing-card_image:not([data-image-type="option-1"]) {
+  visibility: hidden;
+  opacity: 0;
+}
+[data-component="pricing-card"]:is([data-type="option-2"])
+  .pricing-card_image:not([data-image-type="option-2"]) {
+  visibility: hidden;
+  opacity: 0;
+}
+[data-component="pricing-card"]:is([data-type="option-3"])
+  .pricing-card_image:not([data-image-type="option-3"]) {
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* 
+----------------------------------------------------------------------------
+* Project Page
+----------------------------------------------------------------------------
+*/
+.is-project-page .section_background {
+  mask-image: linear-gradient(to bottom, black 45%, transparent 80%);
+}
+
+.is-next-project {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
+}
+
+.is-next-project:not(:hover) .section_background {
+  opacity: 0.3;
+}
+
+/* 
+* Tag List 
+*/
+
+.label-list-container ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  min-width: fit-content;
+}
+.label-list-container li {
+  --size: 32px;
+  display: flex;
+  align-items: center;
+  min-height: var(--size);
+  padding-inline: 1.2em;
+  border-radius: var(--corners--button);
+  border: 1px solid var(--color--border);
+  color: var(--color--text-light);
+  font-size: 0.8em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 
+* Approach List 
+*/
+.approach-list-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.approach-list-container li {
+  padding: 1rem;
+  border-radius: var(--corners--border-radius-sm);
+  border: 1px solid var(--color--border);
+  color: var(--color--text-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.approach-list-container li strong {
+  font-size: 1rem;
+  line-height: 1.5;
+}

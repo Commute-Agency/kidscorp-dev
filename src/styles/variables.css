@@ -1,0 +1,95 @@
+:root {
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --duration: 0.4s;
+    --fade-inline: to right, transparent 5%, black 30%, black 70%, transparent 98%;
+  
+    /* 
+      ----------------------------------------------------------------------------
+      * Colors
+      ----------------------------------------------------------------------------
+      */
+    --highlight: #ffdd05;
+    --highlight-100: #fff479;
+    --highlight-200: #ffec57;
+    --highlight-300: #ffdb2f;
+    --highlight-400: #fddc00;
+    --highlight-500: #ffdd05;
+  
+    --color-dark: #1f1f1f;
+    --color-dark-100: #323232;
+    --color-dark-200: #3b3b3b;
+    --color-dark-300: #444444;
+    --color-dark-400: #4d4d4d;
+    --color-dark-500: #575757;
+  
+    /* Colors */
+    --color-primary: #18181b;
+    --color-secondary: #313136;
+    --color-tertiary: #45454b;
+    --color-neutral: #f2f2f2;
+    --color-highlight: #ffdd05;
+    --color-success: #00b400;
+    --color-error: #ff0000;
+    --color-warning: #ff9800;
+    --color-info: #3366ff;
+  
+    /* 
+      ----------------------------------------------------------------------------
+      * System
+      ----------------------------------------------------------------------------
+      */
+    --color-system-bg: var(--color-neutral);
+    --color-system-txt: var(--color-primary);
+    --color-system-lnk: var(--color-highlight);
+    --color-system-bdr: var(--color-tertiary);
+    --color-system-btn-bg: var(--color-neutral);
+    --color-system-btn-txt: var(--color-primary);
+    --color-system-btn-bdr: var(--color-tertiary);
+    --color-system-btn-hvr-bg: var(--color-primary);
+    --color-system-btn-hvr-txt: var(--color-neutral);
+    --color-system-btn-hvr-bdr: var(--color-tertiary);
+    --color-system-btn-act-bg: var(--color-highlight);
+    --color-system-btn-act-txt: var(--color-neutral);
+    --color-system-btn-act-bdr: var(--color-tertiary);
+  
+    /* 
+      ----------------------------------------------------------------------------
+      * Sizing
+      ----------------------------------------------------------------------------
+      */
+    --size-btn: 40px;
+    --size-card: 400px;
+    --size-gap: 8px;
+  
+    /* 
+      ----------------------------------------------------------------------------
+      * Shadows
+      ----------------------------------------------------------------------------
+      */
+    --size-shadow-1: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --size-shadow-2: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --size-shadow-3: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+    /* 
+      ----------------------------------------------------------------------------
+      * Spacing
+      ----------------------------------------------------------------------------
+      */
+    --spacing-1: 8px;
+    --spacing-2: 16px;
+    --spacing-3: 24px;
+    --spacing-4: 32px;
+    --spacing-5: 40px;
+  
+    /* 
+      ----------------------------------------------------------------------------
+      * Animations
+      ----------------------------------------------------------------------------
+      */
+    --anim-ease-1: cubic-bezier(0.16, 1, 0.3, 1);
+    --anim-duration-1: 0.4s;
+    --anim-ease-2: ease-in-out;
+    --anim-duration-2: 0.2s;
+    --anim-ease-3: ease-in-out;
+    --anim-duration-3: 0.4s;
+  }

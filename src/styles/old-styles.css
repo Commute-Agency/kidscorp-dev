@@ -1,0 +1,99 @@
+:root {
+	--ease: cubic-bezier(0.16, 1, 0.3, 1);
+	--duration: 0.4s;
+}
+
+.feature-works_title-icon {
+	transition: transform var(--duration) ease,
+		opacity var(--duration) linear 0.1s;
+}
+.feature-works_title-icon-container {
+	/* overflow: hidden; */
+	max-width: 200px;
+	transition: max-width var(--duration) ease;
+}
+
+.feature-works_list-item:not(:hover) .feature-works_title-icon-container {
+	max-width: 0px;
+}
+
+.feature-works_list-item:not(:hover) .feature-works_title-icon {
+	opacity: 0;
+	transform: translateX(-50%);
+	/* transition-delay: 0.2s; */
+}
+
+.feature-works_cover {
+	--percentage: 0%;
+	--size: 0px;
+	top: clamp(0%, var(--percentage), calc(100% - var(--size)));
+}
+
+/* Page Index */
+[data-component="page-index"] .navbar_actions {
+	transition: max-width var(--duration) var(--ease),
+		margin-left var(--duration) var(--ease);
+}
+
+[data-fixed="false"] .navbar_actions {
+	max-width: 0px;
+	overflow: hidden;
+	margin-left: 0px;
+	transition: max-width var(--duration) var(--ease),
+		margin-left var(--duration) var(--ease);
+}
+
+.index-navbar_scroll-path {
+	--stroke-dasharray: 0;
+	--stroke-dashoffset: 0;
+	stroke-dasharray: var(--stroke-dasharray);
+	stroke-dashoffset: var(--stroke-dashoffset);
+	stroke: var(--brand-color--highlights);
+}
+
+/* Page Index Links */
+.navbar_link:not(.w--current) .navbar_link-active-dot {
+	margin-right: 0;
+	max-width: 0px;
+	overflow: hidden;
+}
+
+/* Auto scroll */
+[data-component="auto-scroll"] {
+	/* Hide scrollbar */
+	scrollbar-width: none; /* For Firefox */
+	-ms-overflow-style: none; /* For Internet Explorer and Edge */
+    transition: all 0.5s ease;
+}
+
+[data-component="auto-scroll"]::-webkit-scrollbar {
+	width: 0; /* For Chrome, Safari, and Opera */
+}
+
+[data-component="auto-scroll"][data-scrollable="true"] {
+	cursor: grab;
+}
+
+[data-component="auto-scroll"][data-scroll-visibility='start'] {
+	mask-image: linear-gradient(
+		to right,
+		black 70%,
+		transparent 98%
+	);
+}
+[data-component="auto-scroll"][data-scroll-visibility='middle'] {
+	mask-image: linear-gradient(
+		to right,
+		transparent 5%,
+		black 30%,
+		black 70%,
+		transparent 98%
+	);
+}
+[data-component="auto-scroll"][data-scroll-visibility='end'] {
+	mask-image: linear-gradient(
+		to left,
+		black 70%,
+		transparent 98%
+	);
+}
