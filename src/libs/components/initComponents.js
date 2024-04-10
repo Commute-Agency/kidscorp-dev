@@ -2,7 +2,10 @@ import * as componentsList from "./index.js";
 
 const COMPONENTS_LIB = [
 	{
-		"radial-tabs": componentsList.radialTab,
+		"radial-tab": componentsList.radialTab,
+	},
+	{
+		"dropdown": componentsList.dropdown,
 	},
 ];
 export default function initComponents(components = COMPONENTS_LIB) {

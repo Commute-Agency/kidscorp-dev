@@ -1,3 +1,4 @@
-.radial-features_tab-pane-background {
-  background: red;
+.radial-features_tab-content:not(:has(.w--tab-active)) {
+  visibility: hidden;
+  pointer-events: none;
 }

@@ -1,20 +1,20 @@
 export default function radialTab(component) {
 	if (!component) return;
-    const ACTIVE_CLASS = 'w--tab-active'
-    const closeButton = component.querySelector('.radial-features_tab-close-btn');
-    const activeTab = component.querySelector(`.${ACTIVE_CLASS}`);
+	const ACTIVE_CLASS = "w--tab-active";
+	const closeButtonArray = component.querySelectorAll(
+		'[data-component="close-button"]'
+	);
 
-    function closeTab() {
-        activeTab ? activeTab.classList.remove(ACTIVE_CLASS) : this.closest(`.${ACTIVE_CLASS}`);
-    }
+	function closeTab() {
+		this.closest(`.${ACTIVE_CLASS}`).classList.toggle(ACTIVE_CLASS);
+	}
 
 	function setUp() {
-        closeButton.onClick = closeTab
-    }
+		closeButtonArray.forEach((button) => (button.onclick = closeTab));
+	}
 
 	function init() {
 		setUp();
-		console.log({ component });
 	}
 
 	init();
