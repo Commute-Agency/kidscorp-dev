@@ -1,0 +1,23 @@
+/* Dropdown */
+.dropdown .w-nav-overlay {
+	overflow: unset;
+}
+
+.dropdown_button {
+	min-width: max-content;
+}
+.dropdown_list {
+	min-width: max-content;
+}
+
+.dropdown_link {
+	white-space: nowrap;
+}
+.dropdown_icon {
+    width: unset;
+}
+.dropdown_link.w--current {
+	background-color: var(--hot-pink);
+	color: var(--black);
+	font-weight: 500;
+}

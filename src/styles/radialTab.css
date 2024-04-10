@@ -1,0 +1,5 @@
+/* Radial Tab */
+.radial-features_tab-content:not(:has(.w--tab-active)) {
+    visibility: hidden;
+    pointer-events: none;
+  }

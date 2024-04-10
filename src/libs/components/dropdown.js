@@ -1,9 +1,9 @@
 export default function dropdown(component) {
 	if (!component) return;
 	const OPEN_CLASS = "w--open";
-	const dropdownButton = component.querySelector(".w-dropdown-toggle");
+	const dropdownButton = component.querySelector(".dropdown_button");
     const dropdownButtonLabel = component.querySelector('[data-component="dropdown-button-label"]');
-	const dropdownList = component.querySelector(".w-dropdown-list");
+	const dropdownList = component.querySelector(".dropdown_list");
 	let dropdownListLinks = [];
 	let targetLinks = [];
     let ACTIVE_INDEX = 0;
@@ -12,6 +12,14 @@ export default function dropdown(component) {
 		targetLinks = [
 			...document.querySelector(`${component.dataset.childList}`)?.children,
 		];
+	}
+
+	function closeDropdown() {
+		const openElements = component.querySelectorAll(`.${OPEN_CLASS}`)
+
+		openElements.forEach((element) => {
+			element.classList.toggle(OPEN_CLASS)
+		})
 	}
 
 	async function setDropdownLinks() {
@@ -49,7 +57,7 @@ export default function dropdown(component) {
 		dropdownButtonLabel.innerText = link.innerText;
 
         // Simulate close dropdown
-        component.click()
+		// closeDropdown()
 
         targetLinks.find(target => target.innerText === link.innerText)?.click()
 	}
