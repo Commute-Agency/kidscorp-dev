@@ -3,6 +3,7 @@ export default function dropdown(component) {
 
     const dropdownButtonLabel = component.querySelector('[data-component="dropdown-button-label"]');
 	const dropdownList = component.querySelector(".dropdown_list");
+	const CURRENT_CLASS = "w--current"
 	let dropdownListLinks = [];
 	let targetLinks = [];
     let ACTIVE_INDEX = 0;
@@ -44,13 +45,13 @@ export default function dropdown(component) {
 	}
 
 	function setActiveLink(link) {
-		if (link === null || link.classList.contains("w--current")) return;
+		if (link === null || link.classList.contains(CURRENT_CLASS)) return;
 
 		dropdownListLinks.forEach((item) => {
-			item.classList.remove("w--current");
+			item.classList.remove(CURRENT_CLASS);
 		});
 
-		link.classList.toggle("w--current");
+		link.classList.toggle(CURRENT_CLASS);
 		dropdownButtonLabel.innerText = link.innerText;
 
         targetLinks.find(target => target.innerText === link.innerText)?.click()
