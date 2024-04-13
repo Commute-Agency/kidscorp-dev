@@ -1,0 +1,31 @@
+.interactive-adds_tab-link-icon {
+    --transition-duration: .3s;
+    --transition-easing: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+    transition: .1s ease-in;
+    position: relative;
+}
+
+.interactive-adds_tab-link-icon::before {    
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hot-pink);
+    border-radius: var(--corners--round);
+    z-index: -1;
+    transform: scale(1.4);
+    transition: var(--transition-duration) var(--transition-easing);
+    opacity: 0.15;
+}
+
+[aria-selected="false"] .interactive-adds_tab-link-icon::before {
+    transform: scale(0);  
+    opacity: 0.0; 
+}
+
+[aria-selected="false"] .interactive-adds_tab-link-icon {
+    transform: scale(.8);  
+}
+
