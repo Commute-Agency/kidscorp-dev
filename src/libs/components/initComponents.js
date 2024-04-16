@@ -13,6 +13,9 @@ const COMPONENTS_LIB = [
 	{
 		"layers": componentsList.layersAnimation,
 	},
+	{
+		"stacked-sections": componentsList.stackedSectionsAnimation,
+	},
 ];
 export default function initComponents(components = COMPONENTS_LIB) {
 	if (!components || components.length === 0) return;

@@ -4,11 +4,10 @@ export default function layersAnimation(component) {
 	const layersChildren = [...component.querySelectorAll("[data-layer]")];
 
     let mm = gsap.matchMedia();
-	const tl = gsap.timeline({ defaults: { ease: "back.out(1.7)" } });
+	const tl = gsap.timeline({ yoyo: true ,defaults: {ease: "back.out(1.7)" } });
 
 
 	function animateLayers() {
-		// const tl = gsap.timeline();
 
 		const ROTATION_PROPS = {
 			rotateX: 0,
@@ -40,10 +39,14 @@ export default function layersAnimation(component) {
 		return tl;
 	}
 
-	function handleHover({ type, mouseX, clientX, clientY}) {
+	function handleHover({ type, clientX, clientY}) {
 		const animation = tl;
-		const EVENT_TYPE = {
-			mouseenter: () => animation.reverse(),
+
+        console.log({ type, clientX, clientY})
+		
+        const EVENT_TYPE = {
+			mouseenter: () => 
+                animation.reverse(),
 			mouseleave: () => animation.play(),
 			mousemove: () => {
                 const {left, top, width, height} = component.getBoundingClientRect()
@@ -52,7 +55,7 @@ export default function layersAnimation(component) {
 
                 const DEGREE_DEVIATION = 25
 
-                const animationEnd = tl.totalProgress() === 0 ? true : false;
+                const animationEnd = animation.totalProgress() === 0 ? true : false;
 
                 if(animationEnd) {
                     gsap.to(component, {
@@ -64,16 +67,17 @@ export default function layersAnimation(component) {
             },
 		};
 
-		EVENT_TYPE[type]() || EVENT_TYPE[mouseleave]();
+		EVENT_TYPE[type]() || EVENT_TYPE['mouseleave']();
 	}
 
 	function setUp() {
-		animateLayers();
-        mm.add("(min-width: 769px)", () => {
-            component.onmouseenter = handleHover;
-            component.onmouseleave = handleHover;
-            component.onmousemove = handleHover;
-        })
+        animateLayers();
+        component.onmouseenter = handleHover;
+        component.onmouseleave = handleHover;
+        component.onmousemove = handleHover;
+        
+        // mm.add("(min-width: 479px)", () => {
+        // })
 	}
 	function init() {
 		setUp();

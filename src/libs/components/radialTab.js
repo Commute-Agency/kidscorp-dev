@@ -10,7 +10,9 @@ export default function radialTab(component) {
 	const hiddenPane = component.querySelector('[data-component="hidden-pane"]');
 
 	function closeTab() {
-		closeTabButton.click();
+		setTimeout(() => {
+			closeTabButton.click();
+		}, 500);
 		window.removeEventListener("keydown", closeWithEsc)
 	}
 
