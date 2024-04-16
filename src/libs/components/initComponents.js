@@ -10,6 +10,9 @@ const COMPONENTS_LIB = [
 	{
 		"parallax": componentsList.parallaxAnimation,
 	},
+	{
+		"layers": componentsList.layersAnimation,
+	},
 ];
 export default function initComponents(components = COMPONENTS_LIB) {
 	if (!components || components.length === 0) return;

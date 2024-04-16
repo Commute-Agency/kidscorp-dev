@@ -6,8 +6,6 @@ gsap.registerPlugin(ScrollTrigger)
 export default function parallaxAnimation(component) {
 	const parallaxChildren = [... component.querySelectorAll("[data-parallax-speed]")];
 
-	console.log({component, parallaxChildren});
-
 	if (!component || parallaxChildren.length === 0 || component.length === 0)
 		return;
 
@@ -27,7 +25,7 @@ export default function parallaxAnimation(component) {
 	function setUp() {
 		ScrollTrigger.create({
 			trigger: component,
-			start: "top-=50% bottom",
+			start: "top-=100% bottom",
 			end: "bottom+=50% bottom",
 			scrub: 1,
 			animation: animateParallax()
