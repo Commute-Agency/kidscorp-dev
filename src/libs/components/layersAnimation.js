@@ -3,8 +3,8 @@ export default function layersAnimation(component) {
 
 	const layersChildren = [...component.querySelectorAll("[data-layer]")];
 
-    let mm = gsap.matchMedia();
-	const tl = gsap.timeline({ yoyo: true ,defaults: {ease: "back.out(1.7)" } });
+    // let mm = gsap.matchMedia();
+	const tl = gsap.timeline({ defaults: {ease: "back.out(1.7)" } });
 
 
 	function animateLayers() {
@@ -41,8 +41,6 @@ export default function layersAnimation(component) {
 
 	function handleHover({ type, clientX, clientY}) {
 		const animation = tl;
-
-        console.log({ type, clientX, clientY})
 		
         const EVENT_TYPE = {
 			mouseenter: () => 
@@ -75,9 +73,6 @@ export default function layersAnimation(component) {
         component.onmouseenter = handleHover;
         component.onmouseleave = handleHover;
         component.onmousemove = handleHover;
-        
-        // mm.add("(min-width: 479px)", () => {
-        // })
 	}
 	function init() {
 		setUp();
