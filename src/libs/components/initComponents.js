@@ -7,6 +7,9 @@ const COMPONENTS_LIB = [
 	{
 		"dropdown": componentsList.dropdown,
 	},
+	{
+		"parallax": componentsList.parallaxAnimation,
+	},
 ];
 export default function initComponents(components = COMPONENTS_LIB) {
 	if (!components || components.length === 0) return;

@@ -1,5 +1,23 @@
 /* Radial Tab */
-.radial-features_tab-content:not(:has(.w--tab-active)) {
-    visibility: hidden;
-    pointer-events: none;
-  }
+.is-algorithm-powered .cards {
+  position: sticky;
+  bottom: -100%;
+  z-index: 1;
+}
+
+@media screen and (min-width: 991px) {
+	.radial-features_tab-content:not(:has(.w--tab-active)) {
+		visibility: hidden;
+		pointer-events: none;
+	}
+}
+
+.radial-features_tab-pane-background:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+}
