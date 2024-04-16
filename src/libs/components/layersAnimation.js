@@ -3,12 +3,10 @@ export default function layersAnimation(component) {
 
 	const layersChildren = [...component.querySelectorAll("[data-layer]")];
 
-    // let mm = gsap.matchMedia();
-	const tl = gsap.timeline({ defaults: {ease: "back.out(1.7)" } });
-
+	// let mm = gsap.matchMedia();
+	const tl = gsap.timeline({ defaults: { ease: "back.out(1.7)" } });
 
 	function animateLayers() {
-
 		const ROTATION_PROPS = {
 			rotateX: 0,
 			rotateY: 0,
@@ -26,7 +24,7 @@ export default function layersAnimation(component) {
 			trigger: component,
 			start: "top-=50% center",
 			end: "bottom+=50% center",
-            // markers: true,
+			// markers: true,
 
 			onLeave: () => tl.reverse(),
 			onEnterBack: () => tl.play(),
@@ -39,40 +37,37 @@ export default function layersAnimation(component) {
 		return tl;
 	}
 
-	function handleHover({ type, clientX, clientY}) {
+	function handleHover({ type, clientX, clientY }) {
 		const animation = tl;
-		
-        const EVENT_TYPE = {
-			mouseenter: () => 
-                animation.reverse(),
+		const animationEnd = animation.totalProgress() === 0 ? true : false;
+
+		const EVENT_TYPE = {
 			mouseleave: () => animation.play(),
 			mousemove: () => {
-                const {left, top, width, height} = component.getBoundingClientRect()
-                const yPos = ((clientX - left) / width) * 2  - 1
-                const xPos = ((clientY - top) / height) * 2  - 1;
+				animation.reverse();
 
-                const DEGREE_DEVIATION = 25
+				const { left, top, width, height } = component.getBoundingClientRect();
+				const yPos = ((clientX - left) / width) * 2 - 1;
+				const xPos = ((clientY - top) / height) * 2 - 1;
 
-                const animationEnd = animation.totalProgress() === 0 ? true : false;
+				const DEGREE_DEVIATION = 25;
 
-                if(animationEnd) {
-                    gsap.to(component, {
-                        rotateX: xPos * -DEGREE_DEVIATION,
-                        rotateY: yPos * DEGREE_DEVIATION
-                    })
-                }
-                
-            },
+				if (animationEnd) {
+					gsap.to(component, {
+						rotateX: xPos * -DEGREE_DEVIATION,
+						rotateY: yPos * DEGREE_DEVIATION,
+					});
+				}
+			},
 		};
 
-		EVENT_TYPE[type]() || EVENT_TYPE['mouseleave']();
+		EVENT_TYPE[type]() || null;
 	}
 
 	function setUp() {
-        animateLayers();
-        component.onmouseenter = handleHover;
-        component.onmouseleave = handleHover;
-        component.onmousemove = handleHover;
+		animateLayers();
+		component.onmouseleave = handleHover;
+		component.onmousemove = handleHover;
 	}
 	function init() {
 		setUp();
