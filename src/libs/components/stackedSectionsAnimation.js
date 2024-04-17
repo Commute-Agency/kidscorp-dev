@@ -51,7 +51,7 @@ export default function stackedSectionsAnimation(component) {
 				trigger: component,
 				start: `top+=${startOffset} bottom`,
 				end: `top+=${endOffset} bottom`,
-				markers: true,
+				// markers: true,
 				scrub: 1,
 				animation: animation
 			});
