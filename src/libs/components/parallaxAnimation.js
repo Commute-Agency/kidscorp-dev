@@ -20,9 +20,12 @@ export default function parallaxAnimation(component) {
 	function setUp() {
 		ScrollTrigger.create({
 			trigger: component,
-			start: "top-=100% bottom",
-			end: "bottom+=50% bottom",
+			start: "top bottom",
+			end: "bottom-=33% bottom",
+			// start: "top-=100% bottom",
+			// end: "bottom+=50% bottom",
 			scrub: 1,
+			// markers: true,
 			animation: animateParallax(),
 		})
 	}

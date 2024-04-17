@@ -44,7 +44,7 @@ export default function stackedSectionsAnimation(component) {
 				.to(section, {
 					opacity: isLastSection ? 1 : 0,
 					duration: 0.05,
-					delay: isFirstSection ? 0.1 : 0.05
+					delay: isFirstSection ? 0.35 : 0.05
 				});
 
 			ScrollTrigger.create({
