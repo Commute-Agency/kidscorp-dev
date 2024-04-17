@@ -12,8 +12,8 @@ export default function stackedSectionsAnimation(component) {
 	function stackSections() {
 		component.style.setProperty("--num-sections", sectionsArray.length);
 		gsap.set(component, {
-			display: 'grid',
-			gridTemplateColumns: '1fr'
+			display: "grid",
+			gridTemplateColumns: "1fr",
 		});
 		gsap.set(sectionsArray, {
 			opacity: 0,
@@ -31,39 +31,33 @@ export default function stackedSectionsAnimation(component) {
 			const startOffset = index * section.clientHeight;
 			const endOffset = startOffset + section.clientHeight;
 
-
 			// Timeline
-			const animation = gsap.timeline(
-			);
+			const animation = gsap.timeline();
 
 			animation
 				.to(section, {
 					opacity: 1,
-					duration: 0.05,
 				})
 				.to(section, {
 					opacity: isLastSection ? 1 : 0,
-					duration: 0.05,
-					delay: isFirstSection ? 0.35 : 0.05
 				});
 
-			ScrollTrigger.create({
-				trigger: component,
-				start: `top+=${startOffset} bottom`,
-				end: `top+=${endOffset} bottom`,
-				// markers: true,
-				scrub: 1,
-				animation: animation
-			});
+			tl.add(animation);
+		});
 
-			tl.add(animation, index);
+		ScrollTrigger.create({
+			trigger: component,
+			start: `top center`,
+			end: `bottom center`,
+			// markers: true,
+			scrub: 1,
+			animation: tl,
 		});
 	}
 
 	function setUp() {
 		stackSections();
 		animateSections();
-		
 	}
 
 	function init() {
