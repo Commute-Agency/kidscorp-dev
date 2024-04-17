@@ -23,7 +23,7 @@ export default function parallaxAnimation(component) {
 			start: "top-=100% bottom",
 			end: "bottom+=50% bottom",
 			scrub: 1,
-			animation: animateParallax()
+			animation: animateParallax(),
 		})
 	}
 

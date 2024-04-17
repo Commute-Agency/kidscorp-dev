@@ -7,9 +7,9 @@ const COMPONENTS_LIB = [
 	{
 		"dropdown": componentsList.dropdown,
 	},
-	// {
-	// 	"parallax": componentsList.parallaxAnimation,
-	// },
+	{
+		"parallax": componentsList.parallaxAnimation,
+	},
 	{
 		"layers": componentsList.layersAnimation,
 	},
