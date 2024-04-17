@@ -3,7 +3,7 @@ export default function layersAnimation(component) {
 
 	const layersChildren = [...component.querySelectorAll("[data-layer]")];
 
-	// let mm = gsap.matchMedia();
+	let mm = gsap.matchMedia();
 	const tl = gsap.timeline({ defaults: { ease: "back.out(1.7)" } });
 
 	function animateLayers() {
@@ -65,7 +65,9 @@ export default function layersAnimation(component) {
 	}
 
 	function setUp() {
-		animateLayers();
+		mm.add("(min-width: 768px)", () => {
+			animateLayers();
+		})
 		component.onmouseleave = handleHover;
 		component.onmousemove = handleHover;
 	}
