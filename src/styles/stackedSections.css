@@ -1,0 +1,13 @@
+[data-component="stacked-sections"] {
+    display: grid;
+    height: calc(var(--num-sections, 1) * 100vh);
+    min-height: fit-content;
+    /* grid-template-columns: 1fr; */
+}
+
+.section_inner-wrapper {
+    grid-area: 1/1;
+    position: sticky;
+    top: 0;
+    /* position */
+}
