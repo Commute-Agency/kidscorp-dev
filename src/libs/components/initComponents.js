@@ -16,6 +16,9 @@ const COMPONENTS_LIB = [
 	{
 		"stacked-sections": componentsList.stackedSectionsAnimation,
 	},
+	{
+		"auto-scroll": componentsList.autoScroll,
+	},
 ];
 export default function initComponents(components = COMPONENTS_LIB) {
 	if (!components || components.length === 0) return;

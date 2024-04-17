@@ -1,5 +1,3 @@
-import { parallaxAnimation } from "./index.js";
-
 export default function stackedSectionsAnimation(component) {
 	const sectionsArray = [
 		...component.querySelectorAll('[data-component="parallax"]'),

@@ -1,0 +1,21 @@
+[data-component="auto-scroll"] {
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	transition: all 0.5s ease;
+}
+
+[data-component="auto-scroll"][data-scrollable="true"] {
+	cursor: grab;
+}
+
+[data-component=auto-scroll][data-scroll-visibility=start] {
+    mask-image: linear-gradient(to right, black 70%, transparent 98%);
+}
+
+[data-component=auto-scroll][data-scroll-visibility=middle] {
+    mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 98%);
+}
+
+[data-component="auto-scroll"][data-scroll-visibility="end"] {
+	mask-image: linear-gradient(to left, black 70%, transparent 98%);
+}
