@@ -1,0 +1,5 @@
+
+[data-component="layers"]:hover [data-layer]{
+    background-color: transparent;
+    transition: background 0.4s linear;
+}

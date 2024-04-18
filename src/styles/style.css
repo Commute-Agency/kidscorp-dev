@@ -4,6 +4,9 @@
 @import url(./tabs.css);
 @import url(./stackedSections.css);
 @import url(./autoScroll.css);
+@import url(./layersMobile.css);
+
+/* TODO: Remove the above code */
 
 @media screen and (max-width: 768px) {
     .interactive-adds_tab:not([data-current="Interactive Banner"]) .interactive-adds_tab-menu {
