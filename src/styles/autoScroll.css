@@ -8,14 +8,27 @@
 	cursor: grab;
 }
 
+[data-scroll-axis="x"] {
+	--gradient-to: right
+}
+[data-scroll-visibility="end"][data-scroll-axis="x"] {
+	--gradient-to: left
+}
+[data-scroll-axis="y"] {
+	--gradient-to: bottom
+}
+[data-scroll-visibility="end"][data-scroll-axis="y"] {
+	--gradient-to: top
+}
+
 [data-component=auto-scroll][data-scroll-visibility=start] {
-    mask-image: linear-gradient(to right, black 70%, transparent 98%);
+    mask-image: linear-gradient(to var(--gradient-to), black 70%, transparent 98%);
 }
 
 [data-component=auto-scroll][data-scroll-visibility=middle] {
-    mask-image: linear-gradient(to right, transparent 5%, black 30%, black 70%, transparent 98%);
+    mask-image: linear-gradient(to var(--gradient-to), transparent 5%, black 30%, black 70%, transparent 98%);
 }
 
 [data-component="auto-scroll"][data-scroll-visibility="end"] {
-	mask-image: linear-gradient(to left, black 70%, transparent 98%);
+	mask-image: linear-gradient(to var(--gradient-to), black 70%, transparent 98%);
 }
