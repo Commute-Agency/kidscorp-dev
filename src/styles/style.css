@@ -13,3 +13,7 @@
             width: fit-content
     }
 }
+
+#contact form .actions .hs-button {
+    margin-inline: auto;
+}

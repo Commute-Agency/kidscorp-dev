@@ -1,5 +1,5 @@
 /* TABS */
-
+/* Features */
 .service-features_link:not(:last-child)::after {
     content: "";
     position: absolute;
@@ -8,4 +8,18 @@
     width: 1px;
     height: 100%;
     background: currentColor;
+}
+
+/* Platform */
+.is-platform-service-overlap .w-tab-pane {
+    grid-area: 1/1;
+    display: flex;
+    place-content: center;
+    place-items: center;
+    flex-grow: 1;
+    min-height: 100%;
+}
+.is-platform-service-overlap .w-tab-pane:not(.w--tab-active) {
+    display: block;
+    visibility:hidden;
 }
